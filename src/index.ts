@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import mysql from 'mysql'
+import { getToken } from './actions/karing'
 import env from './config/env'
 
 dotenv.config()
@@ -15,7 +16,10 @@ connection.connect();
 
 connection.query('SELECT identificacion FROM ter_terceros', function (error, results, fields) {
     if (error) throw error;
-    console.log(results);
+    //console.log(results);
 });
 
 connection.end();
+
+
+console.log(getToken())
