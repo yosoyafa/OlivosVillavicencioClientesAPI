@@ -13,10 +13,10 @@ const requestOptions: RequestInit = {
     }
 }
 
-export const getToken = async () => {
+export const getToken = () => {
     fetch(tokenUrl, requestOptions)
-    .then((response) => response.json())
-    .catch((err) => console.error(err))
+        .then((response) => response.json())
+        .catch((err) => console.error(err))
 }
 
 /* export const getCarteraByTercero = ({ token, tercero }: { token: string, tercero: number }) => {
