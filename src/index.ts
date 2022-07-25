@@ -20,7 +20,10 @@ connection.query(
         if (error) throw error
         const tercerosCarteraData = results.slice(0, 1).map(
             ({ identificacion }: { identificacion: number }) => {
-                getCarteraByTercero(identificacion).then(cartera => { return cartera })
+                getCarteraByTercero(identificacion).then(cartera => {
+                    console.log()
+                    return cartera
+                })
             }
         )
         console.log(tercerosCarteraData)
@@ -28,3 +31,5 @@ connection.query(
 )
 
 connection.end()
+
+getCarteraByTercero(12553152)

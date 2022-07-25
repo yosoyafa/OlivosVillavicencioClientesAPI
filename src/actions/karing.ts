@@ -37,6 +37,7 @@ export const getCarteraByTercero = async (tercero: number) => {
         )
         if (!response.ok) return {}
         const cartera = await response.json()
+        console.log({ token, cartera })
         return cartera
     } catch (error) {
         console.error({ error })
