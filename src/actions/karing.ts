@@ -13,9 +13,11 @@ const requestOptions: RequestInit = {
     }
 }
 
-export const getToken = async () => fetch(tokenUrl, requestOptions)
+export const getToken = async () => {
+    fetch(tokenUrl, requestOptions)
     .then((response) => response.json())
     .catch((err) => console.error(err))
+}
 
 /* export const getCarteraByTercero = ({ token, tercero }: { token: string, tercero: number }) => {
     axios.get(
