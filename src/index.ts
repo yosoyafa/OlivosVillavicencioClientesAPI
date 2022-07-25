@@ -19,7 +19,10 @@ connection.query(
     function (error, results, fields) {
         if (error) throw error
         const tercerosCarteraData = results.slice(0, 1).map(
-            async ({ identificacion }: { identificacion: number }) => await getCarteraByTercero(identificacion)
+            async ({ identificacion }: { identificacion: number }) => {
+                const cartera = await getCarteraByTercero(identificacion)
+                return cartera
+            }
         )
         console.log(tercerosCarteraData)
     }
