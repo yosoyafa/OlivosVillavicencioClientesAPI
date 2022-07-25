@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const tokenUrl = 'https://erp.karing.com.co/900679170/Api/LoginAPI/Authenticate'
+const tokenUrl = 'https://erp.karing.com.co/900679170/Api/LoginAPI/Authenticate/'
 const tercerosUrl = 'https://erp.karing.com.co/900679170/Api/DocumentosApi'
 
 export const getToken = () => axios.post(tokenUrl, {
