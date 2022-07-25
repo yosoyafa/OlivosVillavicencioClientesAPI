@@ -1,6 +1,10 @@
 import dotenv from 'dotenv'
+import { Tercero } from './entities/Tercero'
 import { AppDataSource } from './data-source'
 
 dotenv.config()
 
-AppDataSource.initialize().then()
+const tercerosRepository = AppDataSource.getRepository(Tercero)
+const allTerceros = await tercerosRepository.find()
+
+console.log(allTerceros)
