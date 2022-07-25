@@ -22,19 +22,22 @@ export const getToken = async () => {
 }
 
 export const getCarteraByTercero = async (tercero: number) => {
-    const token = await getToken()
-    const response = await fetch(
-        `${tercerosUrl}/GetCarteraTerceroV2?tercero=${tercero}`,
-        {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization-Token': token,
-            },
-        }
-    )
-    const cartera = await response.text()
-    console.log(response)
-    return cartera
+    try {
+        const token = await getToken()
+        const response = await fetch(
+            `${tercerosUrl}/GetCarteraTerceroV2?tercero=${tercero}`,
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization-Token': token,
+                },
+            }
+        )
+        const cartera = await response.json()
+        return cartera
+    } catch (error) {
+        console.error({ error })
+    }
 }
