@@ -21,6 +21,7 @@ connection.query(
         const tercerosCarteraData = results.slice(0, 1).map(
             ({ identificacion }: { identificacion: number }) => getCarteraByTercero(identificacion)
         )
+        console.log(tercerosCarteraData)
     }
 )
 
