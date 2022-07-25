@@ -1,9 +1,21 @@
 import dotenv from 'dotenv'
-import { Tercero } from './entities/Tercero'
-import { AppDataSource } from './data-source'
+import mysql from 'mysql'
+import env from './config/env'
 
 dotenv.config()
 
-AppDataSource.manager.find(Tercero).then(
-    (allTerceros) => console.log(allTerceros)
-)
+const connection = mysql.createConnection({
+    host: env.DB_HOST,
+    user: env.DB_USER,
+    password: env.DB_PASSWORD,
+    database: env.DB_NAME
+});
+
+connection.connect();
+
+connection.query('SELECT identificacion FROM ter_terceros', function (error, results, fields) {
+    if (error) throw error;
+    console.log(results);
+});
+
+connection.end();
