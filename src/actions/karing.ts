@@ -46,6 +46,6 @@ export const getCarteraByTercero = async (tercero: number) => {
         if (response.status !== 200) return {}
         return response.data
     } catch (error) {
-        console.error({ error })
+        // console.error({ error })
     }
 }
