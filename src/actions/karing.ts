@@ -16,7 +16,8 @@ const requestOptions: RequestInit = {
 
 export const getToken = async () => {
     const response = await fetch(tokenUrl, requestOptions)
-    return await response.json()
+    const json = await response.json()
+    console.log(json)
 }
 
 /* export const getCarteraByTercero = ({ token, tercero }: { token: string, tercero: number }) => {
