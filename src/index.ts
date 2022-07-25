@@ -5,7 +5,7 @@ import env from './config/env'
 
 dotenv.config()
 
-const connection = mysql.createConnection({
+/* const connection = mysql.createConnection({
     host: env.DB_HOST,
     user: env.DB_USER,
     password: env.DB_PASSWORD,
@@ -30,6 +30,6 @@ connection.query(
     }
 )
 
-connection.end()
+connection.end() */
 
 getCarteraByTercero(12553152)
