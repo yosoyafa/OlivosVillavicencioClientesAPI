@@ -1,7 +1,8 @@
 import fetch from 'node-fetch'
 import { RequestInit } from 'node-fetch'
 
-const tokenUrl = 'https://erp.karing.com.co/900679170/Api/LoginAPI/Authenticate/'
+const tokenUrl =
+    'https://erp.karing.com.co/900679170/Api/LoginAPI/Authenticate/'
 const tercerosUrl = 'https://erp.karing.com.co/900679170/Api/DocumentosApi'
 
 const requestOptions: RequestInit = {
@@ -10,25 +11,29 @@ const requestOptions: RequestInit = {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         usuario: 'CRM',
-        clave: 'CRMfunintegrales'
-    }
+        clave: 'CRMfunintegrales',
+    },
 }
 
 export const getToken = async () => {
     const response = await fetch(tokenUrl, requestOptions)
-    const json = await response.json()
-    console.log(json)
+    const token = await response.json()
+    return token
 }
 
-/* export const getCarteraByTercero = ({ token, tercero }: { token: string, tercero: number }) => {
-    axios.get(
-        tercerosUrl + `/GetCarteraTerceroV2?tercero=${tercero}`,
+export const getCarteraByTercero = async (tercero: number) => {
+    const token = await getToken()
+    const response = await fetch(
+        `${tercerosUrl}/GetCarteraTerceroV2?tercero=${tercero}`,
         {
+            method: 'GET',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization-Token': token
-            }
+                'Authorization-Token': token,
+            },
         }
-    ).then((response) => response.data)
-} */
+    )
+    const cartera = response.text()
+    return cartera
+}
