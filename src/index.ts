@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import mysql from 'mysql'
-import { getToken } from './actions/karing'
+import { getCarteraByTercero } from './actions/karing'
 import env from './config/env'
 
 dotenv.config()
@@ -18,7 +18,9 @@ connection.query(
     'SELECT identificacion FROM ter_terceros',
     function (error, results, fields) {
         if (error) throw error
-        console.log(results[0].identificacion)
+        const tercerosCarteraData = results.slice(0, 1).map(
+            ({ identificacion }: { identificacion: number }) => getCarteraByTercero(identificacion)
+        )
     }
 )
 
