@@ -3,7 +3,7 @@ import env from './config/env'
 import { Tercero } from './entities/Tercero'
 
 export const AppDataSource = new DataSource({
-    type: 'mssql',
+    type: 'mysql',
     host: env.DB_HOST,
     port: 3306,
     username: env.DB_USER,
