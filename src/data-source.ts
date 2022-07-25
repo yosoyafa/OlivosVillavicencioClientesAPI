@@ -1,6 +1,6 @@
-import { DataSource } from "typeorm"
-import env from 'config/env'
-import { Tercero } from "entities/Tercero"
+import { DataSource } from 'typeorm'
+import env from './config/env'
+import { Tercero } from './entities/Tercero'
 
 export const AppDataSource = new DataSource({
     type: 'mssql',
