@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import mysql from 'mysql'
-import { getCarteraByTercero } from './actions/karing'
+import { getCarteraByTercero, getToken, getTokenAxios } from './actions/karing'
 import env from './config/env'
 
 dotenv.config()
@@ -32,4 +32,7 @@ connection.query(
 
 connection.end() */
 
-getCarteraByTercero(12553152)
+//getCarteraByTercero(12553152)
+
+getToken()
+getTokenAxios()

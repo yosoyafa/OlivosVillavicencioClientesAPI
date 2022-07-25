@@ -1,3 +1,4 @@
+import axios from 'axios'
 import fetch from 'node-fetch'
 import { RequestInit } from 'node-fetch'
 
@@ -18,7 +19,24 @@ const requestOptions: RequestInit = {
 export const getToken = async () => {
     const response = await fetch(tokenUrl, requestOptions)
     const token = await response.json()
+    console.log({ token })
     return token
+}
+
+export const getTokenAxios = async () => {
+    const response = await axios.post(tokenUrl, {
+        usuario: 'CRM',
+        clave: 'CRMfunintegrales',
+    }, {
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            usuario: 'CRM',
+            clave: 'CRMfunintegrales',
+        }
+    })
+
+    console.log({ axios: response })
 }
 
 export const getCarteraByTercero = async (tercero: number) => {
@@ -37,7 +55,6 @@ export const getCarteraByTercero = async (tercero: number) => {
         )
         if (!response.ok) return {}
         const cartera = await response.json()
-        console.log({ token, cartera })
         return cartera
     } catch (error) {
         console.error({ error })
