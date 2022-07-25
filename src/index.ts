@@ -18,7 +18,7 @@ connection.query(
     'SELECT identificacion FROM ter_terceros',
     function (error, results, fields) {
         if (error) throw error
-        console.log(results[0])
+        console.log(results[0].identificacion)
     }
 )
 
