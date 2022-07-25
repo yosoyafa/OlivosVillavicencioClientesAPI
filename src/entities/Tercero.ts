@@ -1,7 +1,11 @@
-import { Entity } from "typeorm"
+import { Entity, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity()
 export class Tercero {
+
+    @PrimaryGeneratedColumn()
+    id: number | undefined
+
     descripcion_moneda: string | undefined
     descripcion_centro_costo: string | undefined
     tercero: string | undefined
