@@ -34,6 +34,6 @@ export const getCarteraByTercero = async (tercero: number) => {
             },
         }
     )
-    const cartera = await response.json()
+    const cartera = await response.text()
     return cartera
 }
