@@ -21,5 +21,4 @@ connection.query('SELECT identificacion FROM ter_terceros', function (error, res
 
 connection.end();
 
-
-console.log(getToken())
+getToken()

@@ -15,7 +15,7 @@ const requestOptions: RequestInit = {
 
 export const getToken = () => {
     fetch(tokenUrl, requestOptions)
-        .then((response) => response.json())
+        .then((response) => console.log(response.json()))
         .catch((err) => console.error(err))
 }
 
