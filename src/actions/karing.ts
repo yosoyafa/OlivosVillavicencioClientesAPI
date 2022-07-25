@@ -13,7 +13,7 @@ const requestOptions: RequestInit = {
     }
 }
 
-export const getToken = () => fetch(tokenUrl, requestOptions)
+export const getToken = async () => fetch(tokenUrl, requestOptions)
     .then((response) => response.json())
     .catch((err) => console.error(err))
 
