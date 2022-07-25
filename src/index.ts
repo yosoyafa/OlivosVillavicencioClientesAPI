@@ -19,11 +19,12 @@ connection.query(
     function (error, results, fields) {
         if (error) throw error
         const tercerosCarteraData = results.slice(0, 1).map(
-             ({ identificacion }: { identificacion: number }) =>  getCarteraByTercero(identificacion)
+            ({ identificacion }: { identificacion: number }) => getCarteraByTercero(identificacion)
         )
-        console.log(tercerosCarteraData)
-        console.log(results[0].identificacion)
+        //console.log(tercerosCarteraData)
     }
 )
 
 connection.end()
+
+console.log(getCarteraByTercero(12553152))
