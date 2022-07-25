@@ -17,13 +17,6 @@ const requestOptions: RequestInit = {
 }
 
 export const getToken = async () => {
-    const response = await fetch(tokenUrl, requestOptions)
-    const token = await response.json()
-    console.log({ token })
-    return token
-}
-
-export const getTokenAxios = async () => {
     const response = await axios.post(tokenUrl, {
         usuario: 'CRM',
         clave: 'CRMfunintegrales',
@@ -36,26 +29,22 @@ export const getTokenAxios = async () => {
         }
     })
 
-    console.log({ axios: response })
+    return response.data as string
 }
 
 export const getCarteraByTercero = async (tercero: number) => {
     try {
         const token = await getToken()
-        const response = await fetch(
-            `${tercerosUrl}/GetCarteraTerceroV2?tercero=${tercero}`,
-            {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization-Token': token,
-                },
+        const response = await axios.get(`${tercerosUrl}/GetCarteraTerceroV2?tercero=${tercero}`, {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization-Token': token,
             }
-        )
-        if (!response.ok) return {}
-        const cartera = await response.json()
-        return cartera
+        })
+
+        if (response.status !== 200) return {}
+        return response.data
     } catch (error) {
         console.error({ error })
     }
