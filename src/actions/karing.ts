@@ -8,7 +8,9 @@ export const getToken = () => axios.post(tokenUrl, {
     'Content-Type': 'application/json',
     usuario: 'CRM',
     clave: 'CRMfunintegrales'
-}).then((response) => response.data)
+})
+    .then((response) => response.data)
+    .catch((err) => console.error(err))
 
 export const getCarteraByTercero = ({ token, tercero }: { token: string, tercero: number }) => {
     axios.get(
