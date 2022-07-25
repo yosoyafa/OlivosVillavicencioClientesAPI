@@ -27,4 +27,4 @@ connection.query(
 
 connection.end()
 
-console.log(getCarteraByTercero(12553152))
+getCarteraByTercero(12553152)
