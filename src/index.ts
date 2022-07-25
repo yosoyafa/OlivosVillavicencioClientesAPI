@@ -5,7 +5,7 @@ import env from './config/env'
 
 dotenv.config()
 
-/* const connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: env.DB_HOST,
     user: env.DB_USER,
     password: env.DB_PASSWORD,
@@ -19,17 +19,10 @@ connection.query(
     function (error, results, fields) {
         if (error) throw error
         const tercerosCarteraData = results.slice(0, 1).map(
-            ({ identificacion }: { identificacion: number }) => {
-                getCarteraByTercero(identificacion).then(cartera => {
-                    console.log()
-                    return cartera
-                })
-            }
+            ({ identificacion }: { identificacion: number }) => getCarteraByTercero(identificacion)
         )
         console.log(tercerosCarteraData)
     }
 )
 
-connection.end() */
-
-getCarteraByTercero(12553152)
+connection.end()
