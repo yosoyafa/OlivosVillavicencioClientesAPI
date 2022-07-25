@@ -5,6 +5,7 @@ const tokenUrl = 'https://erp.karing.com.co/900679170/Api/LoginAPI/Authenticate/
 const tercerosUrl = 'https://erp.karing.com.co/900679170/Api/DocumentosApi'
 
 const requestOptions: RequestInit = {
+    method: 'POST',
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
